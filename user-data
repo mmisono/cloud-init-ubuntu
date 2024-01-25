@@ -1,0 +1,19 @@
+#cloud-config
+
+hostname: vm01
+fqdn: vm01
+manage_etc_hosts: false
+ssh_pwauth: true
+disable_root: false
+users:
+  - default
+  - name: ubuntu
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: false
+
+chpasswd:
+  list: |
+    root:password
+    ubuntu:ubuntu
+  expire: false
